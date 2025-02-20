@@ -1,35 +1,52 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
-function App() {
-  const [count, setCount] = useState(0)
-
+import './index.css'
+export default function App() {
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div class="container">
+        <aside class="sidebar">
+          <h2>Invoice Mate</h2><hr/>
+          <ul>
+            <li>Dashboard</li>
+            <li>Activity</li>
+            <li>Contacts</li>
+            <li>Invoice</li>
+            <li>Logout</li>
+          </ul>
+        </aside>
+        <main class="main-content">
+          <header>
+            <h1>Hello, Hiya 👋</h1>
+            <input type="text" class="btn-search" placeholder="Search activity or invoices" />
+          </header>
+          <section class="stats">
+            <div class="card">
+              <p>Total Balance</p>
+              <h2>₹30,500</h2>
+              <button class="btn-download-report">Download Report</button>
+            </div>
+            <div class="card">
+              <p>Top Countries</p>
+              <h2>India</h2>
+            </div>
+          </section>
+          <section class="activity">
+            <h3>Recent Activity</h3>
+            <ul>
+              <li>Brochure Design - ₹320</li>
+              <li>Ecommerce Design - ₹1320</li>
+              <li>Digital Marketing - ₹980</li>
+            </ul>
+          </section>
+          <section class="invoices">
+            <h3>Pending Invoices</h3>
+            <ul>
+              <li>Responsive Design - Remind</li>
+              <li>Responsive Design - Remind</li>
+              <li>Responsive Design - Remind</li>
+            </ul>
+          </section>
+        </main>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
-
-export default App
