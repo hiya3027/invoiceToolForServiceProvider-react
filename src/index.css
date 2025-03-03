@@ -1,57 +1,44 @@
-body {
-  font-family: Verdana, Tahoma, sans-serif;
+html, body {
+  height: 100%;
+  width: 100%;
   margin: 0;
   padding: 0;
-  display: flex;
+  overflow: hidden;
+  
 }
-
 .container {
   display: flex;
-  width: 100%;
-  
-}
-
-.sidebar {
-  width: 300px;
-  background: #0a1931;
-  color: white;
-  padding: 20px;
+  margin: 0px;
+  flex-direction: column;
+  width: 200px;
   height: 100vh;
-  font-size: 15px;
+  padding: 0;
+  padding-left: 0%;
+ 
 }
-
-.sidebar h2 {
-  margin-bottom: 20px;
-  font-size: x-large;
-}
-
-.sidebar ul {
-  list-style: none;
-  padding: 5px;
-  background-color: #0a1931;
-  
-}
-
-.sidebar ul li {
-  padding: 10px;
-  cursor: pointer;
-  color:white;
-  background-color: #0a1931;
-  border-radius: 5px;
-  
-}
-.sidebar ul li:hover {
-  background: #16c79a;
-  
-}
-
 .main-content {
-  
+  flex-grow: 1;
+  width: 112%;
+  height: calc(100vh - 60px);
+  margin: 0;
   padding: 20px;
-  width: 71.2rem;
+  overflow-y: auto;
+  margin-top: 60px;
   background: #ebebeb;
-  margin:auto;
 }
+.custom-navbar {
+  background-color: #0a1931;
+  width: 100%;
+  height: 95px; 
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  position: fixed; 
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
 
 header {
   display: flex;
@@ -60,7 +47,7 @@ header {
 }
 
 header input {
-  padding: 5px;
+  padding: 2px;
   width: 200px;
 }
 
@@ -75,7 +62,7 @@ header input {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 170px;
+  width: 200px;
 }
 .btn-search{
   padding: 15px;
@@ -86,7 +73,7 @@ header input {
   font-size: 15px;
 }
 .btn-download-report{
-  width: 170px;
+  width: 160px;
   font-weight: bolder;
   font-size: medium;
   border-radius: 7px;
@@ -117,4 +104,202 @@ ul li {
 
 ul li:last-child {
   border-bottom: none;
+}
+
+
+/*Invoices css*/
+
+
+
+.invoice-container {
+  width: 60%;
+  margin: 90px auto;
+  padding: 20px;
+  background: #e8e8e8;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+.invoice-title {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 20px;
+}
+.invoice-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.invoice-table th,
+.invoice-table td {
+  padding: 12px;
+  border: 1px solid #ddd;
+}
+.invoice-table th {
+  background: #0b4685;
+  color: white;
+  font-weight: bold;
+}
+.invoice-table tr:nth-child(even) {
+  background: #f2f2f2;
+}
+.invoice-table tr:hover {
+  background: #d4e3fc;
+  transition: 0.3s ease;
+}
+.total-row {
+  background: #b8b8b8;
+  color: #373737;
+  font-weight: bold;
+}
+.total-amount {
+  color: #373737;
+}
+.status {
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-weight: bold;
+  display: inline-block;
+}
+.status.pending {
+  background: #ff6a07;
+  color: black;
+}
+.status.completed {
+  background: #28a745;
+  color: white;
+}
+input, select {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.edit-btn, .save-btn {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.edit-btn:hover {
+  background: #0056b3;
+}
+.save-btn {
+  background: #28a745;
+}
+.save-btn:hover {
+  background: #218838;
+}
+
+.add-customer-form {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.add-customer-form input,
+.add-customer-form select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.add-btn {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-btn:hover {
+  background: #218838;
+}
+
+
+
+
+/*customer css*/
+.customer-container {
+  width: auto;
+  max-width: max-content;
+  margin: 100px auto;
+  padding: 20px;
+  background: #e8e8e8;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+}
+
+.customer-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.customer-form input {
+  width: 30%;
+  min-width: 200px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.customer-form button {
+  padding: 10px 20px;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.customer-form button:hover {
+  background: #218838;
+}
+
+.customer-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.customer-table th,
+.customer-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.customer-table th {
+  background: #0b4685;
+  color: white;
+}
+
+.customer-table tr:nth-child(even) {
+  background: #f2f2f2;
+}
+.btn-edit{
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.btn-edit:hover{
+  background-color: #0056b3;
 }
