@@ -11,7 +11,7 @@ export default function App() {
   return (
     <>
       <Navbar /> 
-      <div className="container mt-4">
+      <div className="container-fluite mt-4">
         <Routes> 
           <Route path='/' element={<Home/>}/>
           <Route path="/invoices" element={<Invoices />} />
