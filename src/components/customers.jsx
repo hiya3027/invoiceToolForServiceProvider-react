@@ -48,8 +48,9 @@ export default function Customers() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  //Add-Update Customer while submitting form
+  
 
+  //Add-Update Customer while submitting form
   const handleSubmit = () => {
     if (Object.values(formData).some((field) => field.trim() === "")) {
       alert("All fields are required!");
@@ -78,6 +79,14 @@ export default function Customers() {
   const handleEditCustomer = (customer) => {
     setEditingCustomerId(customer.id);
     setFormData(customer);
+  };
+
+  //delete customer
+  const handleDeleteCustomer = (id) => {
+    const conformDelete=window.confirm("Sure you want to Delete ?")
+    if (conformDelete){
+      setCustomers(customers.filter((customer) => customer.id !== id));
+    }
   };
 
   return (
@@ -136,6 +145,7 @@ export default function Customers() {
                 <td>{customer.pincode}</td>
                 <td>
                   <button className="btn-edit" onClick={() => handleEditCustomer(customer)}>Edit</button>
+                  <button className="btn-delete" onClick={() => handleDeleteCustomer(customer.id)}>Delete</button>
                 </td>
               </tr>
             ))}

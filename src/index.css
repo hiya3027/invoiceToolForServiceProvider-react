@@ -169,7 +169,7 @@ ul li:last-child {
 .invoice-container {
   width: 100%;
   margin: 90px auto;
-  padding: 20px;
+  padding: 30px;
   background: #e8e8e8;
   border-radius: 10px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
@@ -179,8 +179,11 @@ ul li:last-child {
   font-size: 28px;
   color: #333;
   margin-bottom: 20px;
+  display: inline;
+  padding: 10px;
 }
 .invoice-table {
+  padding: 0px;
   width: 100%;
   border-collapse: collapse;
   background: white;
@@ -223,9 +226,13 @@ ul li:last-child {
   background: #ff6a07;
   color: black;
 }
-.status.completed {
+.status.paid {
   background: #28a745;
   color: white;
+}
+.status.overdue{
+  background: rgb(226, 6, 6);
+  color: #ffffff;
 }
 input, select {
   padding: 5px;
@@ -275,6 +282,15 @@ input, select {
 
 .add-btn:hover {
   background: #218838;
+}
+.search-box {
+  display: block;
+  width: 34%;
+  padding: 8px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
 }
 
 
@@ -354,7 +370,19 @@ h2 {
   padding: 5px 10px;
   border-radius: 5px;
   cursor: pointer;
+  margin-right:6px;
 }
 .btn-edit:hover{
   background-color: #0056b3;
+}
+.btn-delete{
+  background: #ed370a;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.btn-delete:hover{
+  background-color: #de1010;
 }

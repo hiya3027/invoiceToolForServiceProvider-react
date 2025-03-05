@@ -2,11 +2,22 @@ import React, { useState } from "react";
 
 export default function Invoices() {
   const [invoices, setInvoices] = useState([
-    { id: 1, customer: "Hiya", amount: 150.0, status: "Pending" },
-    { id: 2, customer: "Krishna", amount: 250.0, status: "Completed" },
+    { id: 1, customer: "Hiya", amount: 150.0, status: "Paid" },
+    { id: 2, customer: "Krishna", amount: 250.0, status: "OverDue" },
     { id: 3, customer: "Khushi", amount: 100.0, status: "Pending" },
   ]);
 
+  // Search
+  const [searchTerm, setSearchTerm] = useState("");
+  const handleSearch = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
+  const filteredInvoices = invoices.filter((invoice) =>
+    invoice.customer.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  // Editing
   const [editInvoice, setEditInvoice] = useState(null);
   const [formData, setFormData] = useState({
     customer: "",
@@ -53,27 +64,36 @@ export default function Invoices() {
     }
   };
 
-  const totalAmount = invoices.reduce(
-    (sum, invoice) => sum + invoice.amount, 0);
+  const totalAmount = filteredInvoices.reduce(
+    (sum, invoice) => sum + invoice.amount,
+    0
+  );
 
   return (
     <div className="invoice-page">
       <div className="invoice-container">
         <h2 className="invoice-title">Invoices</h2>
 
+        <input type="text" placeholder="Search Customer!" value={searchTerm}
+          onChange={handleSearch} className="search-box"/>
+
         {/* Customer Form */}
         <div className="add-customer-form">
-          <input type="text" name="customer" placeholder="Customer Name" 
-          value={formData.customer} onChange={handleChange}/>
-          <input type="number" name="amount" placeholder="Amount"
-            value={formData.amount} onChange={handleChange}/>
+          <input type="text" name="customer" placeholder="Customer Name"
+          value={formData.customer} onChange={handleChange}/> 
+          <input type="number" name="amount" placeholder="Amount" value={formData.amount}
+            onChange={handleChange}/>
           <select name="status" value={formData.status} onChange={handleChange}>
             <option value="Pending">Pending</option>
-            <option value="Completed">Completed</option>
+            <option value="Paid">Paid</option>
+            <option value="OverDue">OverDue</option>
           </select>
-          <button className="add-btn" onClick={handleAddCustomer}>Add</button>
+          <button className="add-btn" onClick={handleAddCustomer}>
+            Add
+          </button>
         </div>
 
+        {/* Invoice Table */}
         <table className="invoice-table">
           <thead>
             <tr>
@@ -85,7 +105,7 @@ export default function Invoices() {
             </tr>
           </thead>
           <tbody>
-            {invoices.map((invoice) => (
+            {filteredInvoices.map((invoice) => (
               <tr key={invoice.id}>
                 <td>{invoice.id}</td>
                 <td>
@@ -98,14 +118,18 @@ export default function Invoices() {
                 </td>
                 <td>
                   {editInvoice === invoice.id ? (
-                    <input type="number" name="amount" value={formData.amount}
-                      onChange={handleChange} />) : (`₹${invoice.amount.toFixed(2)}`)}
+                    <input type="number"name="amount"value={formData.amount} 
+                    onChange={handleChange}/>
+                  ) : (
+                    `₹${invoice.amount.toFixed(2)}`
+                  )}
                 </td>
                 <td>
                   {editInvoice === invoice.id ? (
-                    <select name="status"value={formData.status}onChange={handleChange}>
+                    <select name="status" value={formData.status}onChange={handleChange}>
                       <option value="Pending">Pending</option>
-                      <option value="Completed">Completed</option>
+                      <option value="Paid">Paid</option>
+                      <option value="Overdue">OverDue</option>
                     </select>
                   ) : (
                     <span className={`status ${invoice.status.toLowerCase()}`}>
@@ -117,7 +141,7 @@ export default function Invoices() {
                   {editInvoice === invoice.id ? (
                     <button className="save-btn" onClick={handleSave}>Save</button>
                   ) : (
-                    <button className="edit-btn"onClick={() => handleEditClick(invoice)}>
+                    <button className="edit-btn" onClick={() => handleEditClick(invoice)}>
                       Edit
                     </button>
                   )}
@@ -128,9 +152,7 @@ export default function Invoices() {
           <tfoot>
             <tr className="total-row">
               <td colSpan="3">Total</td>
-              <td colSpan="2" className="total-amount">
-                ₹{totalAmount.toFixed(2)}
-              </td>
+              <td colSpan="2" className="total-amount">₹{totalAmount.toFixed(2)}</td>
             </tr>
           </tfoot>
         </table>
