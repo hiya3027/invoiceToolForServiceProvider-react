@@ -1,41 +1,51 @@
-export default function home() {
+import React from "react";
+import BackImage from "../images/bg-img.png"; // Import background image
+
+export default function Home() {
   return (
-    <>
-      <div class="container">
-        
-        <main class="main-content">
-          <header>
-            <h1>Hello, Hiya 👋</h1>
-            <input type="text" class="btn-search" placeholder="Search activity or invoices" />
-          </header>
-          <section class="stats">
-            <div class="card">
-              <p>Total Balance</p>
-              <h2>₹30,500</h2>
-              <button class="btn-download-report">Download Report</button>
-            </div>
-            <div class="card">
-              <p>Top Countries</p>
-              <h2>India</h2>
-            </div>
-          </section>
-          <section class="activity">
-            <h3>Recent Activity</h3>
-            <ul>
-              <li>Ecommerce Design - ₹1320</li>
-              <li>Digital Marketing - ₹980</li>
-            </ul>
-          </section>
-          <section class="invoices">
-            <h3>Pending Invoices</h3>
-            <ul>
-              <li>Responsive Design - Remind</li>
-              <li>Responsive Design - Remind</li>
-             
-            </ul>
-          </section>
-        </main>
-      </div>
-    </>
-  )
+    <div className="homepage">
+      <header className="header-box">
+        <div className="box-content">
+          <h1>Smart Invoicing for Service Providers</h1>
+          <p>Manage invoices, track payments, and grow your business with ease.</p>
+          <button className="btn-create-invoice">Create Invoice</button>
+        </div>
+        <div className="image-container">
+          <img src={BackImage} alt="Invoice Dashboard" className="back-image" />
+        </div>
+      </header>
+
+      <section className="dashboard">
+        <div className="stats-card">
+          <h3>Total Balance</h3>
+          <h2>₹30,500</h2>
+          <p>Last updated: 5 min ago</p>
+        </div>
+        <div className="stats-card">
+          <h3>Pending Invoices</h3>
+          <h2>₹7,200</h2>
+          <p>3 invoices pending</p>
+        </div>
+        <div className="stats-card">
+          <h3>Clients</h3>
+          <h2>15</h2>
+          <p>Active clients</p>
+        </div>
+      </section>
+
+      <section className="transactions">
+        <h2>Recent Transactions</h2>
+        <ul>
+          <li>✅ Web Development - ₹12,500 (Paid)</li>
+          <li>⚠️ SEO Services - ₹3,200 (Pending)</li>
+          <li>✅ Logo Design - ₹1,500 (Paid)</li>
+        </ul>
+      </section>
+
+      <section className="actions">
+        <button className="action-btn">Generate Report</button>
+        <button className="action-btn">View All Invoices</button>
+      </section>
+    </div>
+  );
 }

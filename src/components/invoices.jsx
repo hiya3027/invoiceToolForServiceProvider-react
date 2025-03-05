@@ -73,11 +73,11 @@ export default function Invoices() {
     <div className="invoice-page">
       <div className="invoice-container">
         <h2 className="invoice-title">Invoices</h2>
-
-        <input type="text" placeholder="Search Customer!" value={searchTerm}
+        <div className="search-container">
+          <input type="text" placeholder="Search Customer!" value={searchTerm}
           onChange={handleSearch} className="search-box"/>
+        </div>
 
-        {/* Customer Form */}
         <div className="add-customer-form">
           <input type="text" name="customer" placeholder="Customer Name"
           value={formData.customer} onChange={handleChange}/> 
