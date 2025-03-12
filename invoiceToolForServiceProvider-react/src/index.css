@@ -1,0 +1,441 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/*Login register page design*/
+
+.auth-container {
+  width: 300px;
+  margin: 100px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.auth-container h2 {
+  margin-bottom: 20px;
+}
+
+.auth-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-container input {
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.auth-container button {
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.auth-container button:hover {
+  background-color: #0056b3;
+}
+
+.auth-container p {
+  margin-top: 10px;
+}
+
+.auth-container a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.auth-container a:hover {
+  text-decoration: underline;
+}
+
+/*Navbar*/
+.custom-navbar {
+  background-color: #e4ecf9;
+  width: 100%;
+  height: 95px; 
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  position: fixed; 
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+/*home.jsx*/
+.homepage {
+  font-family: "Arial", sans-serif;
+  color: #333;
+  text-align: center;
+  min-height: 100vh;
+  align-items: center;
+  padding-top: 73px;
+}
+.header-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: linear-gradient(135deg, #0056b3, #003d80);
+  color: white;
+  padding: 50px 20px;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.box-content {
+  max-width: 50%;
+}
+
+.header-box h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.header-box p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.btn-create-invoice {
+  background: white;
+  color: #0056b3;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  font-weight: bold;
+}
+
+.btn-create-invoice:hover {
+  background: #ddd;
+}
+
+.image-container {
+  max-width: 40%;
+}
+.back-image {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 15px;
+  transition: transform 0.3s ease-in-out;
+}
+.back-image:hover {
+  transform: scale(1.05);
+}
+.dashboard {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+  gap: 15px;
+}
+
+.stats-card {
+  background: #e6e4e4;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  flex: 1;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.stats-card h3 {
+  font-size: 16px;
+  color: #333;
+}
+
+.stats-card h2 {
+  font-size: 24px;
+  margin: 5px 0;
+  color: #0056b3;
+}
+
+.stats-card p {
+  font-size: 14px;
+  color: #777;
+}
+
+.transactions {
+  background: #e6e4e4;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.transactions h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.transactions ul {
+  list-style: none;
+  padding: 0;
+}
+
+.transactions li {
+  padding: 5px 0;
+  font-size: 14px;
+}
+
+.actions {
+  margin-top: 20px;
+}
+
+.action-btn {
+  background: #007bff;
+  color: white;
+  padding: 10px 15px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.action-btn:hover {
+  background: #0056b3;
+}
+
+
+
+
+/*Invoices css*/
+
+
+
+.invoice-container {
+  width: 100%;
+  margin: 110px auto;
+  padding: 30px;
+  background: #e8e8e8;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+.invoice-title {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 20px;
+  display: inline;
+  padding: 10px;
+}
+.invoice-table {
+  padding: 0px;
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.invoice-table th,
+.invoice-table td {
+  padding: 12px;
+  border: 1px solid #ddd;
+}
+.invoice-table th {
+  background: #0b4685;
+  color: white;
+  font-weight: bold;
+}
+.invoice-table tr:nth-child(even) {
+  background: #f2f2f2;
+}
+.invoice-table tr:hover {
+  background: #d4e3fc;
+  transition: 0.3s ease;
+}
+.total-row {
+  background: #b8b8b8;
+  color: #373737;
+  font-weight: bold;
+}
+.total-amount {
+  color: #373737;
+}
+.status {
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-weight: bold;
+  display: inline-block;
+}
+.status.pending {
+  background: #ff6a07;
+  color: black;
+}
+.status.paid {
+  background: #28a745;
+  color: white;
+}
+.status.overdue{
+  background: rgb(226, 6, 6);
+  color: #ffffff;
+}
+input, select {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.edit-btn, .save-btn , .cancel-btn {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.edit-btn:hover {
+  background: #0056b3;
+}
+.save-btn {
+  background: #28a745;
+  margin-right: 6px;
+}
+.save-btn:hover {
+  background: #218838;
+}
+.cancel-btn{
+  background-color: #ed370a;
+}
+.cancel-btn:hover{
+  background: #c52b05;
+}
+.add-customer-form {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.add-customer-form input,
+.add-customer-form select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.add-btn {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.add-btn:hover {
+  background: #218838;
+}
+.search-box {
+  display: block;
+  width: 50%;
+  max-width: 300px;
+  padding: 8px;
+  margin: 10px auto; /* Centers it */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+.search-container {
+  text-align: center;
+  margin: 10px auto;
+}
+
+
+
+/*customer css*/
+.customer-container {
+  width: auto;
+  max-width: max-content;
+  margin: 100px auto;
+  padding: 20px;
+  background: #e8e8e8;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+}
+
+.customer-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.customer-form input {
+  width: 30%;
+  min-width: 200px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.customer-form button {
+  padding: 10px 20px;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.customer-form button:hover {
+  background: #218838;
+}
+
+.customer-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.customer-table th,
+.customer-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.customer-table th {
+  background: #0b4685;
+  color: white;
+}
+
+.customer-table tr:nth-child(even) {
+  background: #f2f2f2;
+}
+.btn-edit{
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right:6px;
+}
+.btn-edit:hover{
+  background-color: #0056b3;
+}
+.btn-delete{
+  background: #ed370a;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.btn-delete:hover{
+  background-color: #de1010;
+}
