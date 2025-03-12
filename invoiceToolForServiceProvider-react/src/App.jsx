@@ -12,7 +12,7 @@ import ForgotPassword from './pages/forgotPassword.jsx';
 
 export default function App() {
   return (
-    <Router>
+   <>
       <Navbar /> 
       <div className="container-fluite mt-4">
         <Routes> 
@@ -24,6 +24,6 @@ export default function App() {
           <Route path='/customers' element={<Customers/>}/>
         </Routes>
       </div>
-    </Router>
+      </>
   )
 }
