@@ -1,28 +1,31 @@
-import { useState } from "react";
-import axios from "axios";
+import React, { useState } from "react";
 
 const ForgotPassword = () => {
-    const [email, setEmail] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState("");
 
-    const handleForgotPassword = async (e) => {
-        e.preventDefault();
-        try {
-            await axios.post("http://localhost:5000/api/auth/forgot-password", { email });
-            alert("Reset link sent to your email.");
-        } catch (error) {
-            alert("Error: " + error.response.data.message);
-        }
-    };
+  const handleForgotPassword = async (e) => {
+    e.preventDefault();
+    try {
+      const data = await forgotPassword(email);
+      setMessage(data.message);
+    } catch (err) {
+      setError(err.response?.data?.message || "Failed to send reset link");
+    }
+  };
 
-    return (
-        <div>
-            <h2>Forgot Password</h2>
-            <form onSubmit={handleForgotPassword}>
-                <input type="email" placeholder="Enter your email" onChange={(e) => setEmail(e.target.value)} required />
-                <button type="submit">Send Reset Link</button>
-            </form>
-        </div>
-    );
+  return (
+    <div className="container">
+      <h2>Forgot Password</h2>
+      {message && <p style={{ color: "green" }}>{message}</p>}
+      {error && <p style={{ color: "red" }}>{error}</p>}
+      <form onSubmit={handleForgotPassword}>
+        <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+        <button type="submit">Send Reset Link</button>
+      </form>
+    </div>
+  );
 };
 
 export default ForgotPassword;
