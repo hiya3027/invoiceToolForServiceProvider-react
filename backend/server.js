@@ -49,7 +49,7 @@ app.post("/register", async (req, res) => {
 
   } catch (error) {
     console.error("Error:", error);
-    res.status(500).json({ message: "Server error" });
+    res.status(500).json({ message: "Register Server error" });
   }
 });
 
@@ -91,7 +91,7 @@ app.post("/login", async (req, res) => {
 
   } catch (error) {
     console.error("Error during login:", error);
-    res.status(500).json({ message: "Server error" });
+    res.status(500).json({ message: "Login Server error" });
   }
 });
 
