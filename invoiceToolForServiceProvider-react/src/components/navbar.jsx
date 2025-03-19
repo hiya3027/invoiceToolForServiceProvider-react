@@ -22,7 +22,7 @@ export default function Navbar() {
               <Link className="nav-link" to="/invoices">Invoices</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link text-danger" to="/logout">Logout</Link>
+              <Link className="nav-link text-danger" to="/register">Logout</Link>
             </li>
           </ul>
         </div>

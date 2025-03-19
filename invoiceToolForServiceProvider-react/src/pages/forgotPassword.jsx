@@ -16,13 +16,13 @@ const ForgotPassword = () => {
   };
 
   return (
-    <div className="container">
+    <div className="auth-container">
       <h2>Forgot Password</h2>
       {message && <p style={{ color: "green" }}>{message}</p>}
       {error && <p style={{ color: "red" }}>{error}</p>}
       <form onSubmit={handleForgotPassword}>
-        <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-        <button type="submit">Send Reset Link</button>
+        <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} className="user-form-value" required />
+        <button type="submit" className="btn-login-register">Send Reset Link</button>
       </form>
     </div>
   );
