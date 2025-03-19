@@ -4,11 +4,11 @@ const bcrypt = require("bcrypt");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const jwt = require("jsonwebtoken");
-require("dotenv").config();  // ✅ Load .env variables
+require("dotenv").config();  
 
 const app = express();
 const PORT = 8000;
-const SECRET_KEY = process.env.SECRET_KEY;  // ✅ Use secret key from .env
+const SECRET_KEY = process.env.SECRET_KEY;
 
 // Middleware
 app.use(cors());
