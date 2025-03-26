@@ -172,7 +172,6 @@ app.post('/add-customer', async (req, res) => {
 });
 
 //delete customer by id
-// Delete customer route
 app.delete('/delete-customer/:id', async (req, res) => {
   const { id } = req.params;
 
@@ -195,6 +194,32 @@ app.delete('/delete-customer/:id', async (req, res) => {
   }
 });
 
+//---------------------------------------------------------------------------------------
+// Get all invoices
+app.get('/api/invoices', async (req, res) => {
+  try {
+      const result = await pool.query('SELECT * FROM invoices');
+      res.json(result.rows);
+  } catch (error) {
+      console.error(error);
+      res.status(500).send('Server error');
+  }
+});
+
+// Delete an invoice by ID
+app.delete('/api/invoices/:id', async (req, res) => {
+  const { id } = req.params;
+  try {
+      const result = await pool.query('DELETE FROM invoices WHERE id = $1 RETURNING *', [id]);
+      if (result.rows.length === 0) {
+          return res.status(404).send('Invoice not found');
+      }
+      res.send('Invoice deleted');
+  } catch (error) {
+      console.error(error);
+      res.status(500).send('Server error');
+  }
+});
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
