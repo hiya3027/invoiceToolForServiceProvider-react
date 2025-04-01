@@ -10,7 +10,7 @@ export default function Invoices() {
   ]);
 
   const [isEditing, setIsEditing] = useState(false);
-  const [isAdding, setIsAdding] = useState(false); // State for adding new invoice
+  const [isAdding, setIsAdding] = useState(false); 
   const [currentInvoice, setCurrentInvoice] = useState(null);
 
   // Open the modal for editing an invoice
@@ -35,7 +35,7 @@ export default function Invoices() {
     setIsAdding(false);
   };
 
-  // Handle form submission for editing an invoice
+  // form submission for editing an invoice
   const handleEditSubmit = (e) => {
     e.preventDefault();
     const updatedInvoices = invoices.map((inv) =>
@@ -45,18 +45,18 @@ export default function Invoices() {
     closeEditModal();
   };
 
-  // Handle form submission for adding a new invoice
+  // form submission for adding a new invoice
   const handleAddSubmit = (e) => {
     e.preventDefault();
     const newInvoice = {
       ...currentInvoice,
-      id: invoices.length + 1, // Assign new unique ID
+      id: invoices.length + 1,
     };
     setInvoices([...invoices, newInvoice]);
     closeAddModal();
   };
 
-  // Handle input changes in the modal form
+  // input changes in the modal form
   const handleChange = (e) => {
     const { name, value } = e.target;
     setCurrentInvoice((prev) => ({...prev,
