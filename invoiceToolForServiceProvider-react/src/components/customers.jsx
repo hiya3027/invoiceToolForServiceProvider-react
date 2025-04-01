@@ -6,7 +6,7 @@ export default function Customers() {
   const [customers, setCustomers] = useState([
     {
       id: 1,
-      name: "Hiya Patel",
+      name: "Hiya",
       email: "hiya@email.com",
       phone: "1234567890",
       company: "ABCD Ltd.",
@@ -18,7 +18,7 @@ export default function Customers() {
     },
     {
       id: 2,
-      name: "Krishna Mehta",
+      name: "Krishna",
       email: "krishna@email.com",
       phone: "9876543210",
       company: "ASDF Corp.",
