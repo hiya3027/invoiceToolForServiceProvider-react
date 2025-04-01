@@ -24,19 +24,22 @@ body {
 }
 .card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
 .card {
     background: white;
     border-radius: 12px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-    overflow: hidden;
+    padding: 25px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
+    position: relative;
+    border-left: 5px solid #1d5999;
+    width: 100%;
 }
 .card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 .card-header {
     display: flex;
@@ -81,7 +84,7 @@ body {
     align-items: center;
     background: #f5f5f5;
 }
-.btn-edit, .btn-save {
+.btn-edit, .btn-save ,.btn-delete {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -100,16 +103,43 @@ body {
 .btn-edit:hover, .btn-save:hover {
     background: #0056b3;
 }
-.btn-edit .icon, .btn-save .icon {
-    font-size: 30px;
+.btn-edit .icon, .btn-save .icon , .btn-delete .icon {
+    font-size: 35px;
     transition: transform 0.3s;
     height: 30px;
     width: 30px;
+    color: white;
 }
-.btn-edit:hover .icon, .btn-save:hover .icon {
+.btn-edit:hover .icon, .btn-save:hover .icon .btn-delete .icon {
     transform: scale(1.2); 
 }
+.btn-add-fab {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #28a745;
+    color: white;
+    font-size: 30px;
+    width: 60px;
+    height: 60px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s, transform 0.2s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.btn-add-fab:hover {
+    background-color: #218838;
+    transform: scale(1.1);
+}
+.btn-add-fab:active {
+    background-color: #1e7e34;
+    transform: scale(0.95);
+}
 .modal {
     position: fixed;
     top: 0;
@@ -143,9 +173,9 @@ body {
     right: 20px;
     z-index: 20;
 }
-
 .close-btn:hover {
     color: #333;
+    transform: scale(1.1);
 }
 @keyframes fadeIn {
     from {
@@ -165,7 +195,6 @@ input, select {
     border-radius: 5px;
     transition: all 0.3s;
 }
-
 input:focus, select:focus {
     border-color: #007bff;
     outline: none;
@@ -183,7 +212,6 @@ input:focus, select:focus {
     justify-content: center;
     gap: 10px; 
 }
-
 .btn-save:hover {
     background: #218838;
 }
